@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Grup45.Models.Customer>
+
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Ortak.cshtml";
+}
+
+<h2>Anasayfa</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passaport_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.E_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_miles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type_flag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classic_Plus_award)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Elite_award)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Elite_Plus_award)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passaport_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_miles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type_flag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classic_Plus_award)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Elite_award)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Elite_Plus_award)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

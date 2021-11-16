@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Ortak.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Customer Önizleme</h2>
+                <a href="/Default/Create">
+                    <button class="au-btn au-btn-icon au-btn--blue">
+                        <i class="zmdi zmdi-plus"></i>add Customer
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-25">
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c1">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                        <div class="text">
+                            <h2>@Model.customer</h2>
+                            <span>CUSTOMERS</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c2">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                        <div class="text">
+                            <h2>@Model.Classic_plus</h2>
+                            <span>Classic Plus FFC</span>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c3">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                        <div class="text">
+                            <h2>@Model.Elite</h2>
+                            <span>Elite FFC</span>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c4">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                        <div class="text">
+                            <h2>@Model.Elite_plus</h2>
+                            <span>Elite Plus FFC</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="title-1 m-b-25">Customers</h2>
+            <div class="table-responsive table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Passaport Number</th>
+                            <th>Customer Name</th>
+                            <th>Customer Phone</th>
+                            <th>Country</th>
+                            <th>Total Miles</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CustomerList)
+                        {
+                        <tr>
+                            <td><a href="/Default/Details/@item.Customer_id">@item.Customer_id</a></td>
+                            <td>@item.Passaport_number</td>
+                            <td>@item.Customer_name</td>
+                            <td>@item.Customer_phone</td>
+                            <td>@item.Country</td>
+
+                            <td class="text-right">@item.Total_miles</td>
+                            @if (@item.Type_flag == "0")
+                            {
+                                <td><span class="badge badge-dark">Classic</span></td>
+                            }
+                            else if (@item.Type_flag == "1")
+                            {
+                                <td><span class="badge badge-warning">Elite</span></td>
+                            }
+                            else if (@item.Type_flag == "2")
+                            {
+                                <td><span class="badge badge-danger">Elite Plus</span></td>
+                            }
+
+                            else
+                            {
+                                <td><span class="badge badge-primary">Standart</span></td>
+                            }
+                             <td><a href="/Default/Edit/@item.Customer_id"><span class="badge badge-primary">Edit</span></a>
+                                 <a href="/Default/Delete/@item.Customer_id"><span class="badge badge-danger">Delete</span></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     
+    </div>
+    <div class="row">
+
+        <div class="col-lg-9">
+          
+        </div>
+        <div class="col-lg-3">
+            
+            <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                <div class="au-card-inner">
+                    <div class="table-responsive">
+                        <table class="table table-top-countries">
+                            <tbody>
+                                <tr>
+                                    <td>Toplam Müşteri</td>
+                                    <td class="text-right">@Model.customer</td>
+                                </tr>
+                                <tr>
+                                    <td>FFC Müşteri</td>
+                                    <td class="text-right">@(Model.Classic_plus+Model.Elite+Model.Elite_plus)</td>
+                                </tr>
+                                <tr>
+                                    <td>Classic Plus</td>
+                                    <td class="text-right">@Model.Classic_plus</td>
+                                </tr>
+                                <tr>
+                                    <td>Elite</td>
+                                    <td class="text-right">@Model.Elite</td>
+                                </tr>
+                                <tr>
+                                    <td>Elite Plus</td>
+                                    <td class="text-right">@Model.Elite_plus</td>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

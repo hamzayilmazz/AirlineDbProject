@@ -1,0 +1,114 @@
+﻿@model Grup45.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Ortak.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passaport_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passaport_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_miles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_miles)
+        </dd>
+
+       
+        @if (Model.Type_flag == "0")
+        {
+
+            <dt>
+                Bronz Müşteri
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Classic_Plus_award)
+            </dd>
+
+
+            <td><span class="label label-primary">Classic Plus</span></td>
+        }
+        else if (Model.Type_flag == "1")
+        {
+            <dt>
+                Silver Müşteri
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Elite_award)
+            </dd>
+            <td><span class="label label-info">Elite</span></td>
+        }
+        else if (Model.Type_flag == "2")
+        {
+            <dt>
+                Gold Müşteri
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Elite_Plus_award)
+            </dd>
+            <td><span class="badge badge-warning">Elite Plus</span></td>
+        }
+
+        else
+        {
+            <td><span class="label label-success">Normal</span></td>
+        }
+    </dl>
+</div>
+<p> 
+    @Html.ActionLink("Back to List", "Index")
+</p>
